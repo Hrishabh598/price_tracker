@@ -130,12 +130,21 @@ This project demonstrates **backend engineering, system design, and automation s
 
 ```mermaid
 flowchart TD
-    A[User Input: Product URL + Threshold] --> B[Headless Browser (Selenium)]
-    B --> C[Normalize URL (e.g. /dp/ASIN)]
-    C --> D[Extract Price]
-    D --> E[SQLite Database: Save Price History]
-    E --> F[Compare with Threshold]
-    F -->|Price ≥ Threshold| G[No Alert]
-    F -->|Price < Threshold| H[Trigger Alert: Console / Email]
+    A[User Input: Product URL + Threshold]
+    B[Headless Browser (Selenium)]
+    C[Normalize URL (e.g. /dp/ASIN)]
+    D[Extract Price]
+    E[SQLite DB: Save Price History]
+    F[Compare with Threshold]
+    G[No Alert]
+    H[Trigger Alert: Console / Email]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F -->|Price ≥ Threshold| G
+    F -->|Price < Threshold| H
 
 ```
